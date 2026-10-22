@@ -1,0 +1,10 @@
+{
+  "name": "Ember & Origin — Specialty Coffee Roasters",
+  "short_name": "Ember & Origin",
+  "description": "Small-batch specialty coffee, roasted to order and shipped within 48 hours.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#faf3e7",
+  "theme_color": "#3d2b1a",
+  "icons": [{ "src": "assets/favicon.svg", "sizes": "any", "type": "image/svg+xml" }]
+}

@@ -1,0 +1,15 @@
+{
+  "name": "ember-and-origin",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Ember & Origin — specialty coffee storefront (vanilla JS, zero dependencies at runtime).",
+  "scripts": {
+    "start": "python3 -m http.server 8080",
+    "test": "node tests/smoke.test.js",
+    "lint:js": "node --check js/data.js && node --check js/app.js"
+  },
+  "devDependencies": {
+    "jsdom": "^24.0.0"
+  },
+  "license": "MIT"
+}

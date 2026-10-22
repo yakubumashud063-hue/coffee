@@ -3,14 +3,27 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ember &amp; Origin — Specialty Coffee Roasters</title>
-  <meta name="description" content="Small-batch specialty coffee, roasted to order. Browse single origins, blends, and brewing gear." />
+  <title>Ember &amp; Origin — Small-Batch Specialty Coffee Roasters</title>
+  <meta name="description" content="Small-batch specialty coffee roasted to order in Portland, OR. Single origins, house blends, decaf and brewing gear — shipped within 48 hours of roasting." />
+  <meta name="theme-color" content="#faf3e7" />
+  <meta name="color-scheme" content="light" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Ember &amp; Origin" />
+  <meta property="og:title" content="Ember &amp; Origin — Small-Batch Specialty Coffee Roasters" />
+  <meta property="og:description" content="Single origins, house blends, decaf and brewing gear. Roasted weekly, shipped within 48 hours." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="apple-touch-icon" href="assets/favicon.svg" />
+  <link rel="manifest" href="site.webmanifest" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
+
+  <a class="skip-link" href="#shop">Skip to shop</a>
 
   <!-- ======================= HEADER ======================= -->
   <header class="site-header" id="siteHeader">
@@ -173,20 +186,22 @@
   <!-- ======================= PRODUCT DETAIL MODAL ======================= -->
   <div class="modal-overlay" id="detailOverlay" hidden>
     <div class="modal detail-modal" role="dialog" aria-modal="true" aria-labelledby="detailTitle">
-      <button type="button" class="modal-close" data-close="detail" aria-label="Close product details">✕</button>
+      <button type="button" class="modal-close" id="detailCloseBtn" data-close="detail" aria-label="Close product details">✕</button>
       <div class="detail-layout">
         <div class="detail-media" id="detailMedia"><!-- injected --></div>
         <div class="detail-body">
           <p class="detail-category" id="detailCategory"></p>
           <h3 id="detailTitle"></h3>
+          <p class="detail-rating" id="detailRating"></p>
           <p class="detail-price-row"><span id="detailPrice" class="price"></span><span class="weight-note" id="detailWeightNote"></span></p>
           <p class="detail-notes" id="detailNotes"></p>
           <dl class="detail-specs" id="detailSpecs"></dl>
           <p class="detail-story" id="detailStory"></p>
+          <p class="detail-stock" id="detailStock"></p>
           <div class="detail-controls">
             <div class="qty-stepper" role="group" aria-label="Quantity">
               <button type="button" class="qty-btn" data-detail-dec aria-label="Decrease quantity">−</button>
-              <span id="detailQty" aria-live="polite">1</span>
+              <output id="detailQty" aria-live="polite">1</output>
               <button type="button" class="qty-btn" data-detail-inc aria-label="Increase quantity">+</button>
             </div>
             <button type="button" class="btn btn-primary" id="detailAddBtn">Add to cart</button>
@@ -198,10 +213,10 @@
 
   <!-- ======================= CART DRAWER ======================= -->
   <div class="drawer-overlay" id="drawerOverlay" hidden></div>
-  <aside class="cart-drawer" id="cartDrawer" aria-label="Shopping cart" hidden>
+  <aside class="cart-drawer" id="cartDrawer" role="dialog" aria-modal="true" aria-label="Shopping cart" hidden>
     <header class="drawer-head">
       <h3>Your Cart</h3>
-      <button type="button" class="modal-close" data-close="cart" aria-label="Close cart">✕</button>
+      <button type="button" class="modal-close" id="cartCloseBtn" data-close="cart" aria-label="Close cart">✕</button>
     </header>
 
     <div class="drawer-body" id="cartItemsWrap">
@@ -252,7 +267,7 @@
               </div>
               <div class="field">
                 <label for="ckZip">ZIP / Postal</label>
-                <input id="ckZip" name="zip" type="text" inputmode="short-text" autocomplete="postal-code" placeholder="97205" required />
+                <input id="ckZip" name="zip" type="text" inputmode="postal-code" autocomplete="postal-code" placeholder="97205" required />
                 <small class="field-error" data-error-for="ckZip"></small>
               </div>
             </div>
@@ -302,6 +317,7 @@
   <!-- Toast -->
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
+  <script src="js/data.js"></script>
   <script src="js/app.js"></script>
 </body>
 </html>
